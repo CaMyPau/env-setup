@@ -4,12 +4,14 @@ SCRIPT_DIR="$( cd "$( dirname "$0" )" >/dev/null 2>&1 && pwd )"
 echo ${SCRIPT_DIR}
 
 sudo apt update
-sudo apt install \
+sudo apt install -y \
      emacs \
      git \
-     zsh \
+     i3 \
+     pavucontrol \
      python3-pip \
-     i3
+     volumeicon-alsa \
+     zsh
 
 i3_setup()
 {
@@ -23,6 +25,10 @@ i3_setup()
     I3STATUS_CONF_DIR="${HOME}/.config/i3status/"
     mkdir -p ${I3STATUS_CONF_DIR}
     cp ${SCRIPT_DIR}/i3status.config ${I3STATUS_CONF_DIR}/config
+
+    VOLUMEICON_CONF_DIR="${HOME}/.config/volumeicon/"
+    mkdir -p ${VOLUMEICON_CONF_DIR}
+    cp ${SCRIPT_DIR}/volumeicon.config ${VOLUMEICON_CONF_DIR}/volumeicon
 }
 
 zsh_setup()
